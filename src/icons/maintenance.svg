@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Wrench and shield/protection -->
+  <path d="M18 46 L32 32"/>
+  <path d="M14 42 L22 50"/>
+  <circle cx="12" cy="40" r="6"/>
+  <!-- Shield -->
+  <path d="M38 16 L52 16 L52 32 C52 42 45 48 45 48 C45 48 38 42 38 32 Z"/>
+  <path d="M45 26 L45 36"/>
+  <path d="M40 31 L50 31"/>
+</svg>

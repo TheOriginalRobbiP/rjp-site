@@ -1,0 +1,134 @@
+---
+
+interface Project {
+  title: string;
+  description: string;
+  result: string;
+  tech: string[];
+  year: string;
+  link?: string;
+}
+
+// Add real projects here as they ship
+const projects: Project[] = [
+  {
+    title: 'Eworx',
+    description:
+      'Eworx is a South African ISP and IT services business running a legacy WordPress site that had outgrown its platform — slow, hard to update, and disconnected from their backend systems. I rebuilt it on Astro with Splynx and Strapi as the CMS layer, giving the team full control over content without touching code.',
+    result:
+      'Significantly faster load times, a modern content management workflow, and far more functionality than the old site could support.',
+    tech: ['Astro', 'Strapi', 'Splynx', 'Tailwind CSS'],
+    year: '2025',
+    link: 'https://www.eworxsa.co.za/',
+  },
+];
+
+const hasProjects = projects.length > 0;
+---
+
+<section id="work" class="py-24 lg:py-32 section-base border-t border-[var(--color-border-light)]">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="max-w-2xl mb-16 lg:mb-20">
+      <div class="eyebrow">Logbook</div>
+      <h2 class="text-4xl lg:text-5xl mb-6">
+        Recent <em>projects.</em>
+      </h2>
+      <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg">
+        {hasProjects
+          ? (projects.length === 1 ? 'A recent project — more case studies coming soon.' : 'A selection of recent work across different industries and technical challenges.')
+          : 'Case studies are being written up. In the meantime, get in touch — happy to walk through past projects on a call.'}
+      </p>
+    </div>
+
+    {hasProjects ? (
+      <div class="grid gap-12 lg:gap-20">
+        {projects.map((project) => (
+          <article class="grid lg:grid-cols-12 gap-6 lg:gap-12 py-8 border-t border-[var(--color-border)]">
+            <div class="lg:col-span-2">
+              <span class="font-mono text-xs text-[var(--color-ink-subtle)]">{project.year}</span>
+            </div>
+            <div class="lg:col-span-10">
+              <h3 class="font-display text-3xl lg:text-4xl mb-3">{project.title}</h3>
+              <p class="text-[var(--color-ink-muted)] leading-relaxed mb-4 text-[17px]">{project.description}</p>
+              <p class="text-[var(--color-accent)] font-medium mb-5">{project.result}</p>
+              <div class="flex flex-wrap items-center gap-3">
+                {project.tech.map((tag) => (
+                  <span class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)]">
+                    {tag}
+                  </span>
+                ))}
+                {project.link && (
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" class="btn-secondary ml-auto">
+                    Visit site
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                      <path d="M7 17 L17 7 M9 7 L17 7 L17 15"/>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <!-- Empty state — clean with toolbelt mascot -->
+      <div class="border-t border-[var(--color-border)] pt-12 lg:pt-16">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-7">
+            <h3 class="font-display text-3xl lg:text-4xl mb-4">
+              The logbook is being <em>written up.</em>
+            </h3>
+            <p class="text-[var(--color-ink-muted)] leading-relaxed mb-6 text-[17px]">
+              Detailed case studies of recent migrations and new builds are in the pipeline.
+              Want a preview? I'm happy to walk through past work — including before/after
+              metrics, architecture decisions, and the gotchas — on a quick call.
+            </p>
+            <a href="#contact" class="btn-primary">
+              Start a conversation
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </a>
+            <!-- Decorative checklist mark -->
+            <div class="mt-10 space-y-3 font-mono text-sm">
+              <div class="flex items-center gap-3 text-[var(--color-ink-muted)]">
+                <span class="w-4 h-4 rounded-full border border-[var(--color-accent)] flex items-center justify-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
+                </span>
+                Migrations &amp; rebuilds
+              </div>
+              <div class="flex items-center gap-3 text-[var(--color-ink-muted)]">
+                <span class="w-4 h-4 rounded-full border border-[var(--color-accent)] flex items-center justify-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
+                </span>
+                Performance results
+              </div>
+              <div class="flex items-center gap-3 text-[var(--color-ink-muted)]">
+                <span class="w-4 h-4 rounded-full border border-[var(--color-accent)] flex items-center justify-center">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[var(--color-accent)]"></span>
+                </span>
+                Architecture decisions
+              </div>
+              <div class="flex items-center gap-3 text-[var(--color-ink-subtle)]">
+                <span class="w-4 h-4 rounded-full border border-[var(--color-border-strong)]"></span>
+                Public case studies
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-5 flex justify-center">
+            <img
+              src="/images/lighthouse/mascot-toolbelt.png"
+              alt="The octopus mascot wearing a toolbelt, ready to build"
+              class="w-full max-w-[320px] h-auto"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    )}
+
+  </div>
+</section>

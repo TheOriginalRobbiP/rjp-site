@@ -1,0 +1,41 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="py-14 lg:py-16 section-base border-t border-[var(--color-border)]">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- Top row — logo + copyright -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-8 border-b border-[var(--color-border-light)]">
+      <img
+        src="/images/rjp-logo.svg"
+        alt="rjp.digital"
+        class="h-7 w-auto"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="text-[var(--color-ink-subtle)] text-xs font-mono">
+        © {currentYear} · Robin · On watch from the workshop
+      </span>
+    </div>
+
+    <!-- Bottom row — nav + location -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[var(--color-ink-muted)]">
+          <li><a href="#about"    class="hover:text-[var(--color-ink)] transition-colors">About</a></li>
+          <li><a href="#services" class="hover:text-[var(--color-ink)] transition-colors">Services</a></li>
+          <li><a href="#pricing"  class="hover:text-[var(--color-ink)] transition-colors">Pricing</a></li>
+          <li><a href="#work"     class="hover:text-[var(--color-ink)] transition-colors">Work</a></li>
+          <li><a href="#contact"  class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+
+      <p class="text-xs font-mono text-[var(--color-ink-subtle)]">
+        UK-based · working globally · Built with <span class="text-[var(--color-accent)]">Astro.js</span>
+      </p>
+
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,95 @@
+---
+
+const services = [
+  {
+    number: '01',
+    title: 'New Astro builds',
+    sub: 'First Light',
+    description:
+      'Custom-built Astro websites for small businesses. Zero-JS by default, instant page loads, and a stack that’s genuinely easy for you (or me) to update.',
+    deliverables: ['Custom design', 'CMS integration', 'Hosting & deploy'],
+  },
+  {
+    number: '02',
+    title: 'Legacy site migrations',
+    sub: 'Rebuilds',
+    description:
+      'Move your aging WordPress, PHP, jQuery, or Squarespace site onto a modern Astro stack. Content preserved, SEO intact, performance dramatically improved.',
+    deliverables: ['Audit & plan', 'URL & content mapping', 'Zero-downtime cutover'],
+  },
+  {
+    number: '03',
+    title: 'Care plans',
+    sub: 'On Watch',
+    description:
+      'Ongoing hosting, monitoring, edits, and small improvements — a single monthly fee that keeps your site fast, fixed, and in good hands.',
+    deliverables: ['Hosting & domain', 'Unlimited small edits', 'Monthly performance report'],
+  },
+  {
+    number: '04',
+    title: 'Performance audits',
+    sub: 'Sounding',
+    description:
+      'Already have a site, but it’s slow? I’ll audit, prioritise, and fix the bottlenecks — Core Web Vitals green by the end of the project.',
+    deliverables: ['Lighthouse audit', 'Prioritised fix list', 'Implementation'],
+  },
+];
+---
+
+<section id="services" class="relative py-24 lg:py-32 section-alt border-t border-[var(--color-border)] overflow-hidden">
+
+
+
+  <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="max-w-2xl mb-16 lg:mb-20">
+      <div class="eyebrow">Services</div>
+      <h2 class="text-4xl lg:text-5xl mb-6">
+        What I can <em>help with.</em>
+      </h2>
+      <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg">
+        Every project is different, but most of my work falls into one of these
+        four areas. Mix and match as needed — most engagements blend two or more.
+      </p>
+    </div>
+
+    <!-- Services list — single column, editorial -->
+    <div class="space-y-px border-t border-[var(--color-border)]">
+      {services.map((service) => (
+        <article class="group grid md:grid-cols-6 lg:grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-12 border-b border-[var(--color-border)] transition-colors hover:bg-[var(--color-canvas)]">
+
+          <!-- Number + sub-name -->
+          <div class="md:col-span-1 lg:col-span-2">
+            <span class="font-mono text-sm text-[var(--color-ink-subtle)]">{service.number}</span>
+            <p class="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-accent)] mt-2">
+              {service.sub}
+            </p>
+          </div>
+
+          <!-- Title -->
+          <div class="md:col-span-2 lg:col-span-4">
+            <h3 class="font-display text-2xl lg:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+              {service.title}
+            </h3>
+          </div>
+
+          <!-- Description + deliverables -->
+          <div class="md:col-span-3 lg:col-span-6">
+            <p class="text-[var(--color-ink-muted)] leading-relaxed mb-5 text-[17px]">
+              {service.description}
+            </p>
+            <ul class="flex flex-wrap gap-2">
+              {service.deliverables.map((item) => (
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

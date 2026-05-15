@@ -1,0 +1,350 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = true;
+
+const title = 'WordPress to Astro Migration UK — Fixed Price, Zero Downtime | rjp.digital';
+const description =
+  'Move your slow WordPress site to Astro. Faster load times, lower hosting costs, and an SEO foundation built to last. UK-based, fixed-price migrations.';
+
+const problems = [
+  {
+    stat: '3–8s',
+    label: 'Typical WordPress load time',
+    note: 'after plugins, themes, and a shared host slow it down',
+  },
+  {
+    stat: '53%',
+    label: 'of users abandon after 3 seconds',
+    note: 'that\'s customers you\'re paying to acquire but not keeping',
+  },
+  {
+    stat: '£0',
+    label: 'Astro server costs (often)',
+    note: 'static sites run for free or pennies on Cloudflare, Netlify, Vercel',
+  },
+];
+
+const steps = [
+  {
+    number: '01',
+    title: 'Audit',
+    desc: 'I crawl your existing site — every page, every URL, every piece of content. You get a spreadsheet of what exists, what matters, and what can go.',
+    duration: '1–2 days',
+  },
+  {
+    number: '02',
+    title: 'Design',
+    desc: 'A fresh Astro build, designed from scratch to match your brand. Clean components, no dead weight. Reviewed with you before a single line goes live.',
+    duration: '3–7 days',
+  },
+  {
+    number: '03',
+    title: 'Migrate',
+    desc: 'Content moves across — posts, pages, images, forms. Every old URL maps to the right new one. 301 redirects set up so Google doesn\'t notice a thing.',
+    duration: '2–5 days',
+  },
+  {
+    number: '04',
+    title: 'Launch',
+    desc: 'DNS cutover happens in minutes. Old site stays up as a safety net for 48 hours. Monitoring in place from day one, and you\'re on a care plan if you want one.',
+    duration: '1 day',
+  },
+];
+
+const included = [
+  'Full content audit & URL map',
+  'Custom Astro build (no templates)',
+  '301 redirects for every old URL',
+  'Google Analytics / Tag Manager wired up',
+  'Core Web Vitals green on launch',
+  'Contact form (Resend — no plugins)',
+  'Basic SEO: meta, OG, sitemap, robots.txt',
+  'Cloudflare / Netlify deployment',
+  '30-day post-launch support',
+];
+
+const faqs = [
+  {
+    q: 'Will my Google rankings drop?',
+    a: 'Not if we do it right. Every URL is mapped and redirected — Google follows the 301s and the new, faster site typically improves rankings within weeks. Most clients see a Core Web Vitals improvement from red to green on the first crawl.',
+  },
+  {
+    q: 'What if I have a lot of blog posts?',
+    a: 'Large content sites are fine. Content is migrated to Markdown files (which Astro handles natively) or into a headless CMS like Decap or Keystatic if you want an edit UI. The audit phase tells us exactly how many posts we\'re dealing with and prices accordingly.',
+  },
+  {
+    q: 'Do I still need WordPress at all?',
+    a: 'For most small business sites: no. If your WordPress was mainly a brochure site, Astro handles everything better and you drop the hosting, plugin, and maintenance overhead entirely. If you rely on WooCommerce, we\'d talk about whether a headless approach or a different platform makes more sense.',
+  },
+  {
+    q: 'How much does it cost?',
+    a: 'Migrations run £3,950–£7,500 depending on the size of the site, the complexity of the content, and whether you want a CMS editing UI. See the pricing section — or just get in touch and I\'ll give you a number in 24 hours.',
+  },
+  {
+    q: 'How long does it take?',
+    a: 'For a typical 10–20 page business site: 2–3 weeks from kick-off to live. Larger sites or e-commerce transitions take longer — I\'ll give you a realistic timeline upfront, not a guess.',
+  },
+  {
+    q: 'Can I update the site myself after launch?',
+    a: 'Yes. I can set up a lightweight CMS (Decap, Keystatic, or Sanity) so you can edit content without touching code. Or if you\'d rather leave it to me, the monthly care plan covers unlimited small edits.',
+  },
+];
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main>
+
+    <!-- ─── HERO ─────────────────────────────────────────────────────── -->
+    <section class="relative pt-32 pb-24 lg:pt-40 lg:pb-32 border-b border-[var(--color-border)] overflow-hidden">
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="eyebrow">Service — Legacy Migrations</div>
+          <h1 class="text-5xl lg:text-7xl mb-8 leading-[1.05]">
+            Your WordPress site is <em>costing you.</em>
+          </h1>
+          <p class="text-xl lg:text-2xl text-[var(--color-ink-muted)] leading-relaxed mb-10 max-w-2xl">
+            Slow loads, plugin debt, monthly hosting bills for a site that barely
+            changes. I migrate small business sites from WordPress to Astro —
+            faster, cheaper, and built to last.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#contact"
+              class="inline-flex items-center gap-2 bg-[var(--color-ink)] text-[var(--color-canvas)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--color-accent)] transition-colors"
+            >
+              Get a quote
+            </a>
+            <a
+              href="#process"
+              class="inline-flex items-center gap-2 border border-[var(--color-border)] text-[var(--color-ink)] px-7 py-3.5 rounded-full font-medium hover:border-[var(--color-ink)] transition-colors"
+            >
+              See how it works
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROBLEM STATS ────────────────────────────────────────────── -->
+    <section class="py-16 lg:py-20 border-b border-[var(--color-border)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-px bg-[var(--color-border)]">
+          {problems.map((p) => (
+            <div class="bg-[var(--color-canvas)] p-8 lg:p-10">
+              <div class="font-display text-5xl lg:text-6xl text-[var(--color-accent)] mb-2">{p.stat}</div>
+              <div class="font-semibold text-[var(--color-ink)] mb-2">{p.label}</div>
+              <div class="text-sm text-[var(--color-ink-muted)] leading-relaxed">{p.note}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── WHAT CHANGES ─────────────────────────────────────────────── -->
+    <section class="py-24 lg:py-32 border-b border-[var(--color-border)] section-alt">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+          <!-- Before -->
+          <div>
+            <div class="eyebrow text-red-600/70">Before — WordPress</div>
+            <h2 class="text-3xl lg:text-4xl mb-8">What you're living with now</h2>
+            <ul class="space-y-4">
+              {[
+                'Page loads in 3–8 seconds on mobile',
+                '15+ plugins, each a potential security hole',
+                'Hosting fees rising every renewal',
+                'Google flagging Core Web Vitals red',
+                'Constant "WordPress needs updating" emails',
+                'Contact forms that break when a plugin updates',
+                'You dread touching it in case something breaks',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-[var(--color-ink-muted)]">
+                  <span class="mt-1 text-red-400 shrink-0">✕</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- After -->
+          <div>
+            <div class="eyebrow text-teal-700">After — Astro</div>
+            <h2 class="text-3xl lg:text-4xl mb-8">What you get instead</h2>
+            <ul class="space-y-4">
+              {[
+                'Sub-second load times (real ones, not caveated ones)',
+                'Zero plugins. Just code that does exactly what you need.',
+                'Static hosting — often free, always fast, never hacked',
+                'Core Web Vitals green from day one',
+                'No maintenance overhead — set and forget',
+                'Contact form that actually delivers to your inbox',
+                'A site you\'re proud to send people to',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-[var(--color-ink-muted)]">
+                  <span class="mt-1 text-teal-600 shrink-0">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROCESS ──────────────────────────────────────────────────── -->
+    <section id="process" class="py-24 lg:py-32 border-b border-[var(--color-border)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-2xl mb-16">
+          <div class="eyebrow">Process</div>
+          <h2 class="text-4xl lg:text-5xl mb-6">
+            How it <em>actually works.</em>
+          </h2>
+          <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg">
+            Four stages, clear timelines, no surprises. You know exactly where
+            we are at every step.
+          </p>
+        </div>
+
+        <div class="space-y-px border-t border-[var(--color-border)]">
+          {steps.map((step) => (
+            <article class="group grid md:grid-cols-6 lg:grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-12 border-b border-[var(--color-border)] transition-colors hover:bg-[var(--color-canvas)]">
+              <div class="md:col-span-1 lg:col-span-2">
+                <span class="font-mono text-sm text-[var(--color-ink-subtle)]">{step.number}</span>
+                <p class="font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-accent)] mt-2">{step.duration}</p>
+              </div>
+              <div class="md:col-span-2 lg:col-span-3">
+                <h3 class="font-display text-2xl lg:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">{step.title}</h3>
+              </div>
+              <div class="md:col-span-3 lg:col-span-7">
+                <p class="text-[var(--color-ink-muted)] leading-relaxed text-[17px]">{step.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── WHAT'S INCLUDED ──────────────────────────────────────────── -->
+    <section class="py-24 lg:py-32 border-b border-[var(--color-border)] section-alt">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <div class="eyebrow">Scope</div>
+            <h2 class="text-4xl lg:text-5xl mb-6">
+              Everything in the <em>fixed price.</em>
+            </h2>
+            <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg mb-8">
+              No hourly billing, no scope creep surprises. The price we agree
+              upfront is the price you pay. Here's what that covers.
+            </p>
+            <a href="#contact" class="inline-flex items-center gap-2 bg-[var(--color-ink)] text-[var(--color-canvas)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--color-accent)] transition-colors">
+              Get a quote →
+            </a>
+          </div>
+          <ul class="space-y-3">
+            {included.map((item) => (
+              <li class="flex items-center gap-3 py-3 border-b border-[var(--color-border)] text-[var(--color-ink-muted)]">
+                <span class="w-5 h-5 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] flex items-center justify-center shrink-0 text-xs font-bold">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ─────────────────────────────────────────────────────── -->
+    <section class="py-24 lg:py-32 border-b border-[var(--color-border)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-2xl mb-16">
+          <div class="eyebrow">FAQ</div>
+          <h2 class="text-4xl lg:text-5xl mb-6">Questions I get <em>asked a lot.</em></h2>
+        </div>
+        <div class="max-w-3xl space-y-px border-t border-[var(--color-border)]">
+          {faqs.map((faq) => (
+            <details class="group border-b border-[var(--color-border)] py-6 cursor-pointer">
+              <summary class="flex items-start justify-between gap-6 font-medium text-[var(--color-ink)] text-lg list-none">
+                <span>{faq.q}</span>
+                <span class="shrink-0 mt-0.5 text-[var(--color-ink-muted)] group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <p class="mt-4 text-[var(--color-ink-muted)] leading-relaxed text-[17px]">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CASE STUDY TEASER ─────────────────────────────────────────── -->
+    <section class="py-24 lg:py-32 border-b border-[var(--color-border)] section-alt">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="eyebrow mb-6">Delivered</div>
+        <h2 class="text-4xl lg:text-5xl mb-12 max-w-xl">One recent <em>example.</em></h2>
+        <a href="/work/eworx" class="group block max-w-2xl border border-[var(--color-border)] rounded-2xl p-8 lg:p-10 hover:border-[var(--color-ink)] transition-colors bg-[var(--color-canvas)]">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-ink-muted)] mb-4">Case Study</div>
+          <h3 class="font-display text-3xl text-[var(--color-ink)] mb-3 group-hover:text-[var(--color-accent)] transition-colors">Eworx</h3>
+          <p class="text-[var(--color-ink-muted)] leading-relaxed mb-6">
+            WordPress to Astro + Strapi migration for a South African ISP. Multi-template architecture,
+            Splynx billing integration, and a content pipeline their team could actually use.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {['WordPress migration', 'Headless CMS', 'Astro 5', 'Performance'].map((tag) => (
+              <span class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)]">{tag}</span>
+            ))}
+          </div>
+          <div class="mt-6 text-sm font-medium text-[var(--color-accent)]">Read the case study →</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT CTA ───────────────────────────────────────────────── -->
+    <section id="contact" class="py-24 lg:py-32">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <div class="eyebrow">Get in touch</div>
+          <h2 class="text-4xl lg:text-5xl mb-6">Ready to ditch <em>WordPress?</em></h2>
+          <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg mb-10">
+            Tell me about your site — the URL, roughly how many pages, and what's frustrating you most.
+            I'll come back within 24 hours with a realistic quote and timeline.
+          </p>
+          <form action="/api/contact" method="POST" class="space-y-5">
+            <input type="hidden" name="source" value="astro-migration" />
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="name">Your name</label>
+                <input type="text" id="name" name="name" required placeholder="Jane Smith"
+                  class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com"
+                  class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="site-url">Your current website URL</label>
+              <input type="url" id="site-url" name="site_url" placeholder="https://mywordpresssite.co.uk"
+                class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="message">What's frustrating you most about it?</label>
+              <textarea id="message" name="message" rows="4" required
+                placeholder="It loads slowly, costs a fortune to host, keeps getting hacked..."
+                class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" class="inline-flex items-center gap-2 bg-[var(--color-ink)] text-[var(--color-canvas)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--color-accent)] transition-colors">
+              Send →
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

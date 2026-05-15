@@ -1,0 +1,85 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Astro Web Developer UK | rjp.digital',
+  description = 'Freelance web developer based in the UK. I build fast, modern Astro websites for small businesses — new builds, WordPress migrations, and care plans.',
+  canonical = Astro.url.href,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+
+    <!-- Theme colour for browser chrome — matches --color-canvas -->
+    <meta name="theme-color" content="#f4eee2" />
+
+    <!-- Preload LCP hero image (mobile: AVIF, fallback WebP) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/lighthouse/hero-scene-460.avif"
+      imagesrcset="/images/lighthouse/hero-scene-460.avif 460w, /images/lighthouse/hero-scene-920.avif 920w"
+      imagesizes="(max-width: 768px) 100vw, 460px"
+      type="image/avif"
+    />
+
+    <!-- Google Fonts: Instrument Serif (display) + Inter (body) + JetBrains Mono (labels) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content="https://rjp.digital/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="rjp.digital" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://rjp.digital/images/og-image.png" />
+
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <slot />
+  </body>
+</html>

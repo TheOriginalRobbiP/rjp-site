@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Pricing from '../components/Pricing.astro';
+import Work from '../components/Work.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = true;
+---
+
+<Layout
+  title="Astro Web Developer UK — Fast Websites for Small Businesses | rjp.digital"
+  description="Freelance Astro developer based in the UK. I build fast, modern websites for small businesses — new builds, WordPress migrations, and monthly care plans. Free quote.">
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <Pricing />
+    <Work />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* Fade-in animation for sections */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Apply to sections - subtle, not jarring */
+  @media (prefers-reduced-motion: no-preference) {
+    main > section {
+      animation: fadeInUp 0.6s ease-out both;
+    }
+
+    main > section:nth-child(1) { animation-delay: 0s; }
+    main > section:nth-child(2) { animation-delay: 0.1s; }
+    main > section:nth-child(3) { animation-delay: 0.15s; }
+    main > section:nth-child(4) { animation-delay: 0.2s; }
+    main > section:nth-child(5) { animation-delay: 0.25s; }
+    main > section:nth-child(6) { animation-delay: 0.3s; }
+  }
+</style>

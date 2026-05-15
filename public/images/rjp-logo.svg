@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48" fill="none" role="img" aria-label="rjp.digital">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;display=swap');
+      .wordmark-primary { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; fill: #0b2540; letter-spacing: -0.02em; }
+      .wordmark-muted   { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; fill: #5b6b7d; letter-spacing: -0.02em; }
+      .wordmark-dot     { font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; fill: #e8a957; letter-spacing: -0.02em; }
+    </style>
+  </defs>
+  <text y="38">
+    <tspan class="wordmark-primary">rjp</tspan><tspan class="wordmark-dot">.</tspan><tspan class="wordmark-muted">digital</tspan>
+  </text>
+</svg>

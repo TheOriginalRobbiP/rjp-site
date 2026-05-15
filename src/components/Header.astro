@@ -1,0 +1,146 @@
+---
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-canvas)] border-b border-[var(--color-border-light)]"
+  data-header
+>
+  <nav class="max-w-6xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between gap-6">
+
+    <!-- Logo: wordmark SVG -->
+    <a href="/" class="flex items-center group" aria-label="rjp.digital home">
+      <img
+        src="/images/rjp-logo.svg"
+        alt="rjp.digital"
+        class="h-9 w-auto"
+        loading="eager"
+        decoding="async"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-7 text-[14px] text-[var(--color-ink-muted)]">
+      <li><a href={isHome ? '#about'    : '/#about'}    class="nav-link" data-nav-link>About</a></li>
+      <li><a href={isHome ? '#services' : '/#services'} class="nav-link" data-nav-link>Services</a></li>
+      <li><a href={isHome ? '#pricing'  : '/#pricing'}  class="nav-link" data-nav-link>Pricing</a></li>
+      <li><a href={isHome ? '#work'     : '/#work'}     class="nav-link" data-nav-link>Work</a></li>
+      <li><a href="/blog" class={`nav-link ${currentPath.startsWith('/blog') ? 'nav-active' : ''}`}>Blog</a>
+              <span class="text-[var(--color-border)] select-none" aria-hidden="true">|</span>
+              <a href="/astro-migration" class={`nav-link ${currentPath.startsWith('/astro-migration') ? 'nav-active' : ''}`}>WP Migration</a></li>
+    </ul>
+
+    <!-- Right cluster: CTA -->
+    <div class="hidden md:flex items-center gap-3">
+      <a href={isHome ? '#contact' : '/#contact'} class="btn-ghost">Get in touch</a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+      type="button"
+      class="md:hidden p-2 -mr-2 text-[var(--color-ink)]"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-mobile-toggle
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <line x1="4" y1="7"  x2="20" y2="7"/>
+        <line x1="4" y1="14" x2="20" y2="14"/>
+        <line x1="4" y1="21" x2="20" y2="21"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-[var(--color-border-light)] bg-[var(--color-canvas)]"
+    data-mobile-menu
+  >
+    <ul class="px-6 py-4 space-y-3 text-[var(--color-ink-muted)]">
+      <li><a href={isHome ? '#about'    : '/#about'}    class="block py-2 hover:text-[var(--color-ink)]">About</a></li>
+      <li><a href={isHome ? '#services' : '/#services'} class="block py-2 hover:text-[var(--color-ink)]">Services</a></li>
+      <li><a href={isHome ? '#pricing'  : '/#pricing'}  class="block py-2 hover:text-[var(--color-ink)]">Pricing</a></li>
+      <li><a href={isHome ? '#work'     : '/#work'}     class="block py-2 hover:text-[var(--color-ink)]">Work</a></li>
+      <li><a href="/blog" class="block py-2 hover:text-[var(--color-ink)]">Blog</a>
+              <a href="/astro-migration" class="block py-2 hover:text-[var(--color-ink)]">WP Migration</a></li>
+      <li class="pt-2">
+        <a href={isHome ? '#contact' : '/#contact'} class="btn-primary w-full justify-center">Get in touch</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    position: relative;
+    transition: color 0.15s ease;
+  }
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--color-amber);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+  .nav-link:hover::after,
+  .nav-active::after {
+    transform: scaleX(1);
+  }
+
+  .nav-active {
+    color: var(--color-ink);
+  }
+</style>
+
+<script>
+  // ── Mobile menu toggle ─────────────────────────────────────────────────
+  const toggle = document.querySelector<HTMLButtonElement>('[data-mobile-toggle]');
+  const menu   = document.querySelector<HTMLElement>('[data-mobile-menu]');
+
+  toggle?.addEventListener('click', () => {
+    const open = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Open navigation menu' : 'Close navigation menu');
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+      toggle?.setAttribute('aria-label', 'Open navigation menu');
+    });
+  });
+
+  // ── Scroll-aware active nav ────────────────────────────────────────────
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach((link) => {
+            const active = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('nav-active', active);
+            link.setAttribute('aria-current', active ? 'true' : 'false');
+          });
+        }
+      });
+    },
+    { rootMargin: '-40% 0px -55% 0px' }
+  );
+
+  document.querySelectorAll('section[id]').forEach((section) => {
+    observer.observe(section);
+  });
+</script>

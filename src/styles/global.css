@@ -1,0 +1,332 @@
+@import "tailwindcss";
+
+/* ============================================================
+   RJP.DIGITAL — LIGHTHOUSE DIRECTION
+   Beacon palette · Editorial typography · Sticker mascot accents
+   ============================================================ */
+
+@theme {
+  /* === SURFACES (Beacon) === */
+  --color-canvas:        #f4eee2;   /* warm sand — primary background */
+  --color-canvas-alt:    #ebe4d4;   /* alternating sections / subtle wash */
+  --color-canvas-raised: #fbf6ec;   /* cards, raised surfaces */
+
+  /* === INK / TEXT === */
+  --color-ink:           #0b2540;   /* deep navy — primary text & outlines */
+  --color-ink-muted:     #4a5a6b;   /* secondary text — AA compliant on canvas */
+  --color-ink-subtle:    #6b7a89;   /* tertiary / labels — AA compliant on canvas */
+  --color-ink-inverse:   #f4eee2;   /* text on dark backgrounds */
+
+  /* === ACCENT — Weathered Teal === */
+  --color-accent:        #2d5d62;   /* primary accent */
+  --color-accent-hover:  #3a767c;   /* hover state */
+  --color-accent-light:  #d4e5e3;   /* tinted backgrounds */
+  --color-accent-tint:   rgba(45, 93, 98, 0.08);
+
+  /* === HIGHLIGHT — Signal Amber === */
+  --color-amber:         #e8a957;   /* highlight / primary CTA */
+  --color-amber-hover:   #d99943;
+  --color-amber-light:   #f9e6c5;
+  --color-amber-tint:    rgba(232, 169, 87, 0.14);
+
+  /* === BORDERS === */
+  --color-border:        #d8cfb9;   /* standard divider */
+  --color-border-light:  #e3dccb;   /* very subtle */
+  --color-border-strong: #b8ad94;   /* emphasised */
+
+  /* === TYPOGRAPHY === */
+  --font-display:        "Instrument Serif", "Georgia", serif;
+  --font-body:           "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:           "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* === SPACING === */
+  --spacing-section:     6rem;
+  --spacing-section-lg:  8rem;
+
+  /* === RADIUS === */
+  --radius-sm:           0.375rem;
+  --radius-md:           0.625rem;
+  --radius-lg:           1rem;
+  --radius-pill:         999px;
+
+  /* === SHADOW (very restrained) === */
+  --shadow-sm:           0 1px 2px rgba(11, 37, 64, 0.05);
+  --shadow-md:           0 4px 14px rgba(11, 37, 64, 0.08);
+  --shadow-amber:        0 4px 16px rgba(232, 169, 87, 0.32);
+  --shadow-accent:       0 4px 16px rgba(45, 93, 98, 0.18);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-canvas);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  line-height: 1.6;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Editorial display headings */
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+}
+
+h1 { line-height: 1.05; }
+h2 { line-height: 1.08; }
+h3 { line-height: 1.18; }
+
+h1 em, h2 em, h3 em, .font-display em {
+  font-style: italic;
+}
+
+p, li, label, input, textarea, button {
+  font-family: var(--font-body);
+}
+
+/* Mono for labels / metadata */
+.font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "ss01";
+}
+
+/* Selection */
+::selection {
+  background: var(--color-amber);
+  color: var(--color-ink);
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Anchored sections */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* ============================================================
+   COMPONENT UTILITIES
+   ============================================================ */
+
+/* === Eyebrow — small uppercase mono label above headings === */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin-bottom: 1.25rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* === Buttons === */
+
+/* Primary CTA — signal amber */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--color-amber);
+  color: var(--color-ink);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-amber);
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--shadow-amber);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--color-amber-hover);
+  border-color: var(--color-amber-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(232, 169, 87, 0.42);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Teal accent button — secondary CTA when amber would be too loud */
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--color-accent);
+  color: var(--color-ink-inverse);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-accent);
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: var(--shadow-accent);
+  cursor: pointer;
+}
+.btn-accent:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+/* Secondary — underlined text link, no fill */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem 0.4rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  background: transparent;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--color-ink);
+  transition: color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Ghost — pill outline, used in header */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  border-color: var(--color-ink);
+  background: var(--color-canvas-alt);
+}
+
+/* === Section helpers === */
+
+.section-base {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+}
+
+.section-alt {
+  background: var(--color-canvas-alt);
+}
+
+.section-dark {
+  background: var(--color-ink);
+  color: var(--color-ink-inverse);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3 {
+  color: var(--color-ink-inverse);
+}
+
+.section-dark .eyebrow {
+  color: rgba(244, 238, 226, 0.55);
+}
+
+/* === Cards === */
+.card {
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* === Input fields === */
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  background: var(--color-canvas-raised);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: #fff;
+}
+.input-field::placeholder {
+  color: var(--color-ink-subtle);
+}
+
+/* === Tag — small pill label === */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  background: var(--color-canvas);
+  border: 1px solid var(--color-border);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+}
+
+/* === Amber highlight pill — for "Recommended" / hero stats === */
+.pill-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  background: var(--color-amber-light);
+  border: 1px solid var(--color-amber);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+}

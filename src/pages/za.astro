@@ -1,0 +1,345 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export const prerender = false;
+---
+
+<Layout
+  title="rjp.digital | Web Development for South African Businesses"
+  description="Fast, custom-built websites for South African small businesses. Escape slow WordPress sites and Wix builders — rebuilt on Astro, priced in Rands."
+>
+  <Header />
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex items-center pt-24 pb-16 lg:pt-28 lg:pb-24 overflow-hidden section-base"
+    >
+      <div class="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <div class="grid md:grid-cols-6 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+          <!-- LEFT — Copy + CTAs -->
+          <div class="md:col-span-4 lg:col-span-7">
+            <div class="eyebrow">Web Developer · Serving South Africa · Since 2018</div>
+
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] mb-7">
+              Your website should work as hard as <em>you do.</em>
+            </h1>
+
+            <p class="text-lg lg:text-xl text-[var(--color-ink-muted)] leading-relaxed max-w-xl mb-9">
+              I build fast, custom websites for South African small businesses —
+              priced in Rands, built to last, and easy to update without an agency on speed dial.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 mb-12">
+              <a href="#contact" class="btn-primary">
+                Book a free 20-min audit
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+              </a>
+              <a href="#pricing" class="btn-secondary">See ZAR pricing</a>
+            </div>
+
+            <!-- Signature -->
+            <p class="font-display text-base italic text-[var(--color-ink-muted)]">
+              — Robin, freelance web developer
+            </p>
+          </div>
+
+          <!-- RIGHT — Lighthouse illustration (reuse hero asset) -->
+          <div class="md:col-span-2 lg:col-span-5 flex justify-center lg:justify-end">
+            <div class="relative w-full max-w-[460px]">
+              <div class="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-md bg-[var(--color-canvas-raised)]">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="/images/lighthouse/hero-scene-460.avif 460w, /images/lighthouse/hero-scene-920.avif 920w"
+                    sizes="(max-width: 768px) 100vw, 460px"
+                  />
+                  <source
+                    type="image/webp"
+                    srcset="/images/lighthouse/hero-scene-460.webp 460w, /images/lighthouse/hero-scene-920.webp 920w"
+                    sizes="(max-width: 768px) 100vw, 460px"
+                  />
+                  <img
+                    src="/images/lighthouse/hero-scene-460.webp"
+                    alt="A lighthouse on a rocky coastal outcrop at golden hour"
+                    class="absolute inset-0 w-full h-full object-cover"
+                    width="460"
+                    height="575"
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom border -->
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-[var(--color-border-light)]"></div>
+    </section>
+    <!-- END HERO -->
+
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="relative py-24 lg:py-32 section-alt border-t border-[var(--color-border)] overflow-hidden">
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="max-w-2xl mb-16 lg:mb-20">
+          <div class="eyebrow">Services</div>
+          <h2 class="text-4xl lg:text-5xl mb-6">
+            What I can <em>help with.</em>
+          </h2>
+          <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg">
+            Whether you are starting fresh, escaping a platform that is holding you back,
+            or just need someone reliable to keep things running — most South African
+            businesses I work with fall into one of these four categories.
+          </p>
+        </div>
+
+        <!-- Services list -->
+        <div class="space-y-px border-t border-[var(--color-border)]">
+
+          <!-- 01 -->
+          <article class="group grid md:grid-cols-6 lg:grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-12 border-b border-[var(--color-border)] transition-colors hover:bg-[var(--color-canvas)]">
+            <div class="md:col-span-1 lg:col-span-2">
+              <span class="font-mono text-sm text-[var(--color-ink-subtle)]">01</span>
+              <p class="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-accent)] mt-2">First Light</p>
+            </div>
+            <div class="md:col-span-2 lg:col-span-4">
+              <h3 class="font-display text-2xl lg:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                New Astro builds
+              </h3>
+            </div>
+            <div class="md:col-span-3 lg:col-span-6">
+              <p class="text-[var(--color-ink-muted)] leading-relaxed mb-5 text-[17px]">
+                A custom-built Astro website for your South African business. No drag-and-drop builder,
+                no bloated WordPress theme. Just a fast, clean site that loads instantly on mobile data
+                and ranks well on Google SA from day one.
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Custom design</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Local SEO setup</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Hosting & deploy</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 02 -->
+          <article class="group grid md:grid-cols-6 lg:grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-12 border-b border-[var(--color-border)] transition-colors hover:bg-[var(--color-canvas)]">
+            <div class="md:col-span-1 lg:col-span-2">
+              <span class="font-mono text-sm text-[var(--color-ink-subtle)]">02</span>
+              <p class="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-accent)] mt-2">Rebuilds</p>
+            </div>
+            <div class="md:col-span-2 lg:col-span-4">
+              <h3 class="font-display text-2xl lg:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                Legacy site migrations
+              </h3>
+            </div>
+            <div class="md:col-span-3 lg:col-span-6">
+              <p class="text-[var(--color-ink-muted)] leading-relaxed mb-5 text-[17px]">
+                Stuck on a slow WordPress site, a GoDaddy builder, or a Wix template from 2016?
+                I will migrate everything across to a modern Astro stack — content intact, URLs preserved,
+                and dramatically faster on South African connections.
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Audit & plan</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">URL & content mapping</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Zero-downtime cutover</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 03 -->
+          <article class="group grid md:grid-cols-6 lg:grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-12 border-b border-[var(--color-border)] transition-colors hover:bg-[var(--color-canvas)]">
+            <div class="md:col-span-1 lg:col-span-2">
+              <span class="font-mono text-sm text-[var(--color-ink-subtle)]">03</span>
+              <p class="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-accent)] mt-2">On Watch</p>
+            </div>
+            <div class="md:col-span-2 lg:col-span-4">
+              <h3 class="font-display text-2xl lg:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                Care plans
+              </h3>
+            </div>
+            <div class="md:col-span-3 lg:col-span-6">
+              <p class="text-[var(--color-ink-muted)] leading-relaxed mb-5 text-[17px]">
+                One flat monthly fee in Rands — covers hosting, uptime monitoring, security updates,
+                and unlimited small edits. No surprise invoices, no chasing a developer who has gone quiet.
+                Your site stays up, fast, and in good hands.
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Hosting & domain</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Unlimited small edits</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Monthly performance report</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 04 -->
+          <article class="group grid md:grid-cols-6 lg:grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-12 border-b border-[var(--color-border)] transition-colors hover:bg-[var(--color-canvas)]">
+            <div class="md:col-span-1 lg:col-span-2">
+              <span class="font-mono text-sm text-[var(--color-ink-subtle)]">04</span>
+              <p class="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-accent)] mt-2">Sounding</p>
+            </div>
+            <div class="md:col-span-2 lg:col-span-4">
+              <h3 class="font-display text-2xl lg:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                Performance audits
+              </h3>
+            </div>
+            <div class="md:col-span-3 lg:col-span-6">
+              <p class="text-[var(--color-ink-muted)] leading-relaxed mb-5 text-[17px]">
+                Already have a site but it loads painfully slowly on mobile data?
+                I will run a full audit, identify exactly what is killing your load times,
+                and fix it. Core Web Vitals green, Google happy, customers staying on the page.
+              </p>
+              <ul class="flex flex-wrap gap-2">
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Lighthouse audit</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Prioritised fix list</li>
+                <li class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">Implementation</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- END SERVICES -->
+
+
+    <!-- ===== WORK / CASE STUDY ===== -->
+    <section id="work" class="relative py-24 lg:py-32 section-alt border-t border-[var(--color-border)]">
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="eyebrow mb-6">Delivered</div>
+        <h2 class="text-4xl lg:text-5xl mb-12 max-w-xl">One recent <em>example.</em></h2>
+        <a href="/work/eworx" class="group block max-w-2xl border border-[var(--color-border)] rounded-2xl p-8 lg:p-10 hover:border-[var(--color-ink)] transition-colors bg-[var(--color-canvas)]">
+          <div class="font-mono text-xs uppercase tracking-widest text-[var(--color-ink-muted)] mb-4">Case Study</div>
+          <h3 class="font-display text-3xl text-[var(--color-ink)] mb-3 group-hover:text-[var(--color-accent)] transition-colors">Eworx</h3>
+          <p class="text-[var(--color-ink-muted)] leading-relaxed mb-6">
+            WordPress to Astro + Strapi migration for a South African ISP. Multi-template architecture,
+            Splynx billing integration, and a content pipeline their team can actually use.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {["WordPress migration", "Headless CMS", "Astro 5", "South Africa"].map((tag) => (
+              <span class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)]">{tag}</span>
+            ))}
+          </div>
+          <div class="mt-6 text-sm font-medium text-[var(--color-accent)]">Read the case study</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="relative py-24 lg:py-32 border-t border-[var(--color-border)]">
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-2xl mb-16 lg:mb-20">
+          <div class="eyebrow">Pricing</div>
+          <h2 class="text-4xl lg:text-5xl mb-6">Priced in <em>Rands.</em></h2>
+          <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg">
+            No currency conversion surprises. All pricing is in ZAR, paid locally.
+            Fixed quotes upfront — what I say it costs is what you pay.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl">
+          <div class="border border-[var(--color-border)] rounded-2xl p-8 lg:p-10 bg-[var(--color-canvas)]">
+            <div class="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-accent)] mb-4">On Watch</div>
+            <div class="font-display text-5xl text-[var(--color-ink)] mb-1">R3,500</div>
+            <div class="text-[var(--color-ink-muted)] text-sm mb-8">per month</div>
+            <ul class="space-y-3 mb-8">
+              {["Hosting & domain included", "Unlimited small edits", "Uptime monitoring 24/7", "Security updates handled", "Monthly performance report", "Direct WhatsApp access"].map((item) => (
+                <li class="flex items-center gap-3 text-[var(--color-ink-muted)] text-sm">
+                  <span class="text-[var(--color-accent)] shrink-0">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#contact" class="block text-center border border-[var(--color-border)] text-[var(--color-ink)] px-6 py-3 rounded-full font-medium hover:border-[var(--color-ink)] transition-colors text-sm">Get started</a>
+          </div>
+          <div class="border border-[var(--color-ink)] rounded-2xl p-8 lg:p-10 bg-[var(--color-canvas)]">
+            <div class="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--color-accent)] mb-4">Project Build</div>
+            <div class="font-display text-5xl text-[var(--color-ink)] mb-1">R25,000</div>
+            <div class="text-[var(--color-ink-muted)] text-sm mb-8">to R55,000 — fixed quote upfront</div>
+            <ul class="space-y-3 mb-8">
+              {["Custom-designed Astro site", "Mobile-first, SA connections in mind", "Contact forms & lead capture", "Local SEO setup", "Google Analytics wired up", "30-day post-launch support"].map((item) => (
+                <li class="flex items-center gap-3 text-[var(--color-ink-muted)] text-sm">
+                  <span class="text-[var(--color-accent)] shrink-0">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <a href="#contact" class="block text-center bg-[var(--color-ink)] text-[var(--color-canvas)] px-6 py-3 rounded-full font-medium hover:bg-[var(--color-accent)] transition-colors text-sm">Get a quote</a>
+          </div>
+        </div>
+        <p class="mt-8 text-sm text-[var(--color-ink-muted)] max-w-lg">
+          Migrating from WordPress? That falls under a project build.
+          <a href="#contact" class="underline underline-offset-2 hover:text-[var(--color-ink)]">Get in touch</a> and I will give you a number within 24 hours.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="relative py-24 lg:py-32 section-alt border-t border-[var(--color-border)]">
+      <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div>
+            <div class="eyebrow">Get in touch</div>
+            <h2 class="text-4xl lg:text-5xl mb-6">Let us build something <em>worth finding.</em></h2>
+            <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg mb-8">
+              Tell me about your business and what you need. I will come back within 24 hours with a realistic plan and a fixed quote in Rands.
+            </p>
+            <ul class="space-y-4 text-[var(--color-ink-muted)]">
+              {["No obligation — just a conversation", "Quote in Rands, no surprises", "Reply within 24 hours"].map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="text-[var(--color-accent)] mt-0.5 shrink-0">✓</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <form action="/api/contact" method="POST" class="space-y-5">
+              <input type="hidden" name="source" value="za" />
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="za-name">Your name</label>
+                  <input type="text" id="za-name" name="name" required placeholder="Sipho Ndlovu"
+                    class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors" />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="za-email">Email</label>
+                  <input type="email" id="za-email" name="email" required placeholder="sipho@mybusiness.co.za"
+                    class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors" />
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="za-biz">Your business or website URL</label>
+                <input type="text" id="za-biz" name="site_url" placeholder="mybusiness.co.za or describe your business"
+                  class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-[var(--color-ink)] mb-2" for="za-message">What do you need?</label>
+                <textarea id="za-message" name="message" rows="4" required
+                  placeholder="New site, migration from WordPress, care plan, performance audit..."
+                  class="w-full px-4 py-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-canvas)] text-[var(--color-ink)] placeholder:text-[var(--color-ink-subtle)] focus:outline-none focus:border-[var(--color-ink)] transition-colors resize-none"></textarea>
+              </div>
+              <button type="submit" class="inline-flex items-center gap-2 bg-[var(--color-ink)] text-[var(--color-canvas)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--color-accent)] transition-colors">
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+  <Footer />
+</Layout>

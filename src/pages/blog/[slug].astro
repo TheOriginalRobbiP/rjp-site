@@ -1,0 +1,112 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts
+    .filter(p => !p.data.draft)
+    .map(post => ({
+      params: { slug: post.id },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric',
+  });
+}
+---
+
+<Layout
+  title={`${post.data.title} | rjp.digital`}
+  description={post.data.description}
+>
+  <Header />
+  <main>
+
+    <!-- HERO -->
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 border-b border-[var(--color-border)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="eyebrow mb-4">
+            <a href="/blog" class="hover:text-[var(--color-accent)] transition-colors">Writing</a>
+            <span class="mx-2 text-[var(--color-ink-subtle)]">/</span>
+            <span class="text-[var(--color-ink-subtle)]">{post.data.tags[0]}</span>
+          </div>
+          <h1 class="text-4xl lg:text-6xl mb-6 leading-[1.05]">
+            {post.data.title}
+          </h1>
+          <p class="text-lg text-[var(--color-ink-muted)] max-w-2xl leading-relaxed mb-6">
+            {post.data.description}
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <time datetime={post.data.date} class="font-mono text-sm text-[var(--color-ink-subtle)]">
+              {formatDate(post.data.date)}
+            </time>
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map((tag: string) => (
+                <span class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTICLE BODY -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="prose prose-lg max-w-none
+            prose-headings:font-display prose-headings:text-[var(--color-ink)] prose-headings:font-normal
+            prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+            prose-p:text-[var(--color-ink-muted)] prose-p:leading-[1.8] prose-p:text-[17px] prose-p:mb-6
+            prose-a:text-[var(--color-accent)] prose-a:no-underline hover:prose-a:underline
+            prose-strong:text-[var(--color-ink)] prose-strong:font-semibold
+            prose-li:text-[var(--color-ink-muted)] prose-li:leading-relaxed
+            prose-ul:my-6 prose-ol:my-6
+            prose-table:text-sm prose-table:text-[var(--color-ink-muted)]
+            prose-th:text-[var(--color-ink)] prose-th:font-semibold prose-th:border-b prose-th:border-[var(--color-border)] prose-th:pb-3
+            prose-td:border-b prose-td:border-[var(--color-border)] prose-td:py-3
+            prose-code:text-[var(--color-accent)] prose-code:bg-[var(--color-canvas-raised)] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+            prose-code:before:content-none prose-code:after:content-none
+            prose-blockquote:border-l-4 prose-blockquote:border-[var(--color-accent)] prose-blockquote:pl-6 prose-blockquote:text-[var(--color-ink-muted)] prose-blockquote:italic prose-blockquote:not-italic
+            prose-hr:border-[var(--color-border)] prose-hr:my-10">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACK + CTA -->
+    <section class="py-16 border-t border-[var(--color-border)] section-alt">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <a href="/blog" class="font-medium text-[var(--color-ink-muted)] hover:text-[var(--color-ink)] transition-colors">
+            ← Back to writing
+          </a>
+          <div class="flex flex-col sm:items-end gap-2">
+            <div class="font-display text-xl text-[var(--color-ink)]">Got a slow site?</div>
+            <a href="/astro-migration" class="inline-flex items-center gap-2 bg-[var(--color-ink)] text-[var(--color-canvas)] px-6 py-3 rounded-full font-medium hover:bg-[var(--color-accent)] transition-colors text-sm">
+              See how migration works →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

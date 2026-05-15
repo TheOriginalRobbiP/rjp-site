@@ -1,0 +1,194 @@
+---
+
+const careIncludes = [
+  'Custom design & build',
+  'Hosting & domain renewal',
+  'Unlimited small edits',
+  'Uptime monitoring',
+  'Monthly performance report',
+  'Email support',
+];
+
+const lumpIncludes = [
+  'Custom design & build',
+  'Source code handover',
+  'Deploy to your hosting',
+  '30 days of post-launch fixes',
+  'Hosting from £25/mo (optional)',
+];
+
+const comparison = {
+  rows: [
+    { label: 'Setup cost',               diy: '£0',                    freelancer: '£2k–£10k+',     rjp: '£0' },
+    { label: 'Monthly cost',             diy: '£16–£50',               freelancer: '£0–£500',       rjp: '£249' },
+    { label: 'Who edits the site',       diy: 'You, in their builder', freelancer: 'You, or £85/hr', rjp: 'I do it' },
+    { label: 'Who hosts it',             diy: 'They do',               freelancer: 'You sort it',   rjp: 'I do' },
+    { label: 'Who fixes it when broken', diy: 'You, alone',            freelancer: 'Maybe — if free', rjp: 'I do, same week' },
+    { label: 'Page-load speed',          diy: 'Sluggish',              freelancer: 'Hit & miss',    rjp: 'Sub-second' },
+    { label: 'Who owns the code',        diy: 'They do',               freelancer: 'You (usually)', rjp: 'You, fully' },
+  ],
+};
+---
+
+<section id="pricing" class="relative py-24 lg:py-32 section-base border-t border-[var(--color-border)] overflow-hidden">
+
+  <div class="relative max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="max-w-2xl mb-16 lg:mb-20">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="text-4xl lg:text-5xl mb-6">
+        One fair fee, <em>or pay outright.</em>
+      </h2>
+      <p class="text-[var(--color-ink-muted)] leading-relaxed text-lg">
+        Most clients choose the Care Plan — £0 to start, one predictable
+        monthly fee that covers everything. If you'd rather pay once and host
+        it yourself, that works too.
+      </p>
+    </div>
+
+    <!-- Two-tile pricing -->
+    <div class="grid md:grid-cols-6 lg:grid-cols-12 gap-8 mb-20">
+
+      <!-- ===== Care Plan (lead tile) ===== -->
+      <article class="md:col-span-3 lg:col-span-7 relative bg-[var(--color-canvas-raised)] border-2 border-[var(--color-amber)] rounded-2xl p-8 lg:p-10 shadow-md">
+
+        <!-- Recommended pill -->
+        <div class="absolute -top-3 left-8">
+          <span class="pill-amber">Recommended</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-4 mb-6">
+          <div>
+            <p class="font-mono text-xs uppercase tracking-[0.14em] text-[var(--color-accent)] mb-2">
+              On Watch · Care Plan
+            </p>
+            <h3 class="font-display text-3xl lg:text-4xl mb-2">The full keeper service.</h3>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="font-display text-6xl lg:text-7xl text-[var(--color-ink)]">£249</span>
+          <span class="text-[var(--color-ink-muted)] text-lg">/month</span>
+        </div>
+        <p class="text-sm text-[var(--color-ink-muted)] mb-8">
+          £0 to start · 12-month minimum, then rolling monthly. Site live in 4 weeks.
+        </p>
+
+        <!-- Includes -->
+        <ul class="space-y-3 mb-10">
+          {careIncludes.map((item) => (
+            <li class="flex items-start gap-3 text-[var(--color-ink)]">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[var(--color-amber)]" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10.5l3.5 3.5L16 5.5"/>
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a href="#contact" class="btn-primary w-full justify-center">
+          Start a Care Plan
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+      </article>
+
+      <!-- ===== Lump-sum (alt tile) ===== -->
+      <article class="md:col-span-3 lg:col-span-5 relative bg-[var(--color-canvas-raised)] border border-[var(--color-border)] rounded-2xl p-8 lg:p-10">
+        <div class="mb-6">
+          <p class="font-mono text-xs uppercase tracking-[0.14em] text-[var(--color-accent)] mb-2">
+            Project · Lump Sum
+          </p>
+          <h3 class="font-display text-3xl lg:text-4xl mb-2">Pay once, you own it.</h3>
+        </div>
+
+        <!-- Price -->
+        <div class="flex items-baseline gap-2 mb-2">
+          <span class="font-mono text-xs text-[var(--color-ink-subtle)] uppercase tracking-wider">From</span>
+          <span class="font-display text-5xl lg:text-6xl text-[var(--color-ink)]">£3,950</span>
+        </div>
+        <p class="text-sm text-[var(--color-ink-muted)] mb-8">
+          One-time fee · typically £3,950–£7,500 depending on scope. Final price agreed before any work starts.
+        </p>
+
+        <!-- Includes -->
+        <ul class="space-y-3 mb-10">
+          {lumpIncludes.map((item) => (
+            <li class="flex items-start gap-3 text-[var(--color-ink)]">
+              <svg class="w-5 h-5 mt-0.5 flex-shrink-0 text-[var(--color-accent)]" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10.5l3.5 3.5L16 5.5"/>
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a href="#contact" class="btn-accent w-full justify-center">
+          Request a quote
+        </a>
+      </article>
+
+    </div>
+
+    <!-- ===== Comparison table ===== -->
+    <div class="border-t border-[var(--color-border)] pt-16 lg:pt-20">
+      <div class="max-w-2xl mb-10">
+        <div class="eyebrow">How it stacks up</div>
+        <h3 class="font-display text-3xl lg:text-4xl mb-4">
+          Care Plan vs <em>everything else.</em>
+        </h3>
+      </div>
+
+      <!-- Desktop table -->
+      <div class="hidden md:block border border-[var(--color-border)] rounded-2xl overflow-hidden bg-[var(--color-canvas-raised)]">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-[var(--color-border)] bg-[var(--color-canvas-alt)]">
+              <th class="text-left p-5 font-mono text-[11px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)] font-medium w-1/4"></th>
+              <th class="text-left p-5 font-display text-lg text-[var(--color-ink-muted)] font-normal w-1/4">DIY builder<br/><span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-subtle)]">(Wix, Squarespace)</span></th>
+              <th class="text-left p-5 font-display text-lg text-[var(--color-ink-muted)] font-normal w-1/4">Other freelancer<br/><span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-subtle)]">or agency</span></th>
+              <th class="text-left p-5 font-display text-lg text-[var(--color-amber)] font-normal w-1/4 bg-[var(--color-amber-tint)]">rjp.digital<br/><span class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">Care Plan</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            {comparison.rows.map((row, i) => (
+              <tr class={`border-b border-[var(--color-border-light)] last:border-b-0 ${i % 2 === 1 ? 'bg-[var(--color-canvas)]' : ''}`}>
+                <td class="p-5 font-mono text-xs uppercase tracking-wider text-[var(--color-ink-muted)]">{row.label}</td>
+                <td class="p-5 text-[var(--color-ink-muted)]">{row.diy}</td>
+                <td class="p-5 text-[var(--color-ink-muted)]">{row.freelancer}</td>
+                <td class="p-5 text-[var(--color-ink)] font-medium bg-[var(--color-amber-tint)]">{row.rjp}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile cards (3 stacked cards, one per column) -->
+      <div class="md:hidden space-y-6">
+        {[
+          { label: 'DIY builder',       sub: 'Wix, Squarespace', key: 'diy',        accent: false },
+          { label: 'Other freelancer',  sub: 'or agency',        key: 'freelancer', accent: false },
+          { label: 'rjp.digital',       sub: 'Care Plan',        key: 'rjp',        accent: true  },
+        ].map((col) => (
+          <div class={`rounded-2xl border p-6 ${col.accent ? 'border-[var(--color-amber)] bg-[var(--color-amber-tint)]' : 'border-[var(--color-border)] bg-[var(--color-canvas-raised)]'}`}>
+            <h4 class={`font-display text-xl mb-1 ${col.accent ? 'text-[var(--color-amber)]' : 'text-[var(--color-ink-muted)]'}`}>{col.label}</h4>
+            <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--color-ink-subtle)] mb-5">{col.sub}</p>
+            <dl class="space-y-3">
+              {comparison.rows.map((row) => (
+                <div class="flex items-baseline justify-between gap-4 text-sm border-b border-[var(--color-border-light)] pb-2 last:border-b-0">
+                  <dt class="font-mono text-[10px] uppercase tracking-wider text-[var(--color-ink-muted)]">{row.label}</dt>
+                  <dd class={`text-right ${col.accent ? 'text-[var(--color-ink)] font-medium' : 'text-[var(--color-ink-muted)]'}`}>{row[col.key as 'diy' | 'freelancer' | 'rjp']}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>

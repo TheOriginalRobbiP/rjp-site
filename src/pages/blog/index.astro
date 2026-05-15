@@ -1,0 +1,117 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export const prerender = true;
+
+const title = 'Web Development Blog — Astro, Performance & WordPress Migrations | rjp.digital';
+const description =
+  'Practical writing about web performance, Astro.js, and building faster sites for small businesses. No fluff.';
+
+const allPosts = await getCollection('blog');
+const publishedPosts = allPosts
+  .filter(p => !p.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main>
+
+    <!-- HERO -->
+    <section class="relative pt-32 pb-16 lg:pt-40 lg:pb-20 border-b border-[var(--color-border)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="eyebrow">Writing</div>
+        <h1 class="text-5xl lg:text-6xl mt-3 mb-6 max-w-2xl leading-[1.05]">
+          Things worth <em>knowing.</em>
+        </h1>
+        <p class="text-lg text-[var(--color-ink-muted)] max-w-xl leading-relaxed">
+          Practical writing about web performance, Astro.js migrations, and
+          building sites that actually work for small businesses.
+        </p>
+      </div>
+    </section>
+
+    <!-- POST LIST -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        {publishedPosts.length === 0 ? (
+          <div class="max-w-xl py-20 text-center mx-auto">
+            <div class="font-mono text-[var(--color-ink-subtle)] text-sm mb-4">/ / /</div>
+            <h2 class="font-display text-2xl text-[var(--color-ink)] mb-3">First post incoming.</h2>
+            <p class="text-[var(--color-ink-muted)] leading-relaxed">
+              Working on it. Check back soon — or{' '}
+              <a href="/#contact" class="underline underline-offset-2 hover:text-[var(--color-ink)]">
+                get in touch
+              </a>{' '}
+              and I will let you know when it is up.
+            </p>
+          </div>
+        ) : (
+          <div class="space-y-px border-t border-[var(--color-border)]">
+            {publishedPosts.map((post) => (
+              <a
+                href={`/blog/${post.id}`}
+                class="group grid md:grid-cols-6 lg:grid-cols-12 gap-6 lg:gap-12 py-10 lg:py-12 border-b border-[var(--color-border)] hover:bg-[var(--color-canvas)] transition-colors"
+              >
+                <div class="md:col-span-1 lg:col-span-2">
+                  <time datetime={post.data.date} class="font-mono text-sm text-[var(--color-ink-subtle)]">
+                    {formatDate(post.data.date)}
+                  </time>
+                </div>
+                <div class="md:col-span-2 lg:col-span-4">
+                  <h2 class="font-display text-2xl lg:text-3xl text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+                    {post.data.title}
+                  </h2>
+                </div>
+                <div class="md:col-span-3 lg:col-span-6">
+                  <p class="text-[var(--color-ink-muted)] leading-relaxed mb-5 text-[17px]">
+                    {post.data.description}
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    {post.data.tags.map((tag: string) => (
+                      <span class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas)]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="mt-5 text-sm font-medium text-[var(--color-accent)]">Read →</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- CTA FOOTER -->
+    <section class="py-16 lg:py-20 border-t border-[var(--color-border)] section-alt">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div>
+            <div class="font-display text-2xl text-[var(--color-ink)] mb-1">Got a slow site?</div>
+            <p class="text-[var(--color-ink-muted)]">I migrate WordPress sites to Astro. Fixed price, fast turnaround.</p>
+          </div>
+          <a
+            href="/astro-migration"
+            class="shrink-0 inline-flex items-center gap-2 bg-[var(--color-ink)] text-[var(--color-canvas)] px-7 py-3.5 rounded-full font-medium hover:bg-[var(--color-accent)] transition-colors"
+          >
+            See how it works →
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

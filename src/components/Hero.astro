@@ -1,0 +1,77 @@
+---
+
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center pt-24 pb-16 lg:pt-28 lg:pb-24 overflow-hidden section-base"
+>
+  <div class="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8">
+    <div class="grid md:grid-cols-6 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+      <!-- LEFT — Copy + CTAs -->
+      <div class="md:col-span-4 lg:col-span-7">
+        <div class="eyebrow">Astro.js Developer · On watch since 2018</div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-[5.25rem] mb-7">
+          A steady signal in the noise of <em>broken websites.</em>
+        </h1>
+
+        <p class="text-lg lg:text-xl text-[var(--color-ink-muted)] leading-relaxed max-w-xl mb-9">
+          I help small businesses escape slow, hard-to-update sites and
+          rebuild them on Astro — fast, owned, and made to last.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 mb-12">
+          <a href="#contact" class="btn-primary">
+            Book a free 20-min audit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+          <a href="#pricing" class="btn-secondary">See pricing</a>
+        </div>
+
+        <!-- Signature -->
+        <p class="font-display text-base italic text-[var(--color-ink-muted)]">
+          — Robin, freelance developer
+        </p>
+      </div>
+
+      <!-- RIGHT — Lighthouse hero illustration -->
+      <div class="md:col-span-2 lg:col-span-5 flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-[460px]">
+          <!-- Frame for the illustration -->
+          <div class="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-md bg-[var(--color-canvas-raised)]">
+            <picture>
+              <source
+                type="image/avif"
+                srcset="/images/lighthouse/hero-scene-460.avif 460w, /images/lighthouse/hero-scene-920.avif 920w"
+                sizes="(max-width: 768px) 100vw, 460px"
+              />
+              <source
+                type="image/webp"
+                srcset="/images/lighthouse/hero-scene-460.webp 460w, /images/lighthouse/hero-scene-920.webp 920w"
+                sizes="(max-width: 768px) 100vw, 460px"
+              />
+              <img
+                src="/images/lighthouse/hero-scene-460.webp"
+                alt="A lighthouse on a rocky coastal outcrop at golden hour"
+                class="absolute inset-0 w-full h-full object-cover"
+                width="460"
+                height="575"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom border — soft demarcation to next section -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-[var(--color-border-light)]"></div>
+</section>

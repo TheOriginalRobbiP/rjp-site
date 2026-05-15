@@ -1,0 +1,88 @@
+---
+
+---
+
+<section id="about" class="py-24 lg:py-32 section-base border-t border-[var(--color-border-light)]">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="grid md:grid-cols-6 lg:grid-cols-12 gap-12 lg:gap-16">
+
+      <!-- Left — section heading + mascot -->
+      <div class="md:col-span-2 lg:col-span-5">
+        <div class="eyebrow">About</div>
+        <h2 class="text-4xl lg:text-5xl mb-6">
+          The keeper at<br/>
+          the lighthouse —<br/>
+          <em>and his workshop.</em>
+        </h2>
+        <p class="text-[var(--color-ink-muted)] leading-relaxed mb-8">
+          Independent. Hand-built. Six years in. No agency hand-offs,
+          no offshore relays — when you call, you get me.
+        </p>
+
+        <!-- Availability -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-full border border-[var(--color-border)] bg-[var(--color-canvas-raised)] mb-8">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+          <span class="font-mono text-xs uppercase tracking-widest text-[var(--color-ink-muted)]">Available for new projects</span>
+        </div>
+
+        <!-- How it works -->
+        <div class="space-y-4">
+          <p class="font-mono text-xs uppercase tracking-widest text-[var(--color-ink-subtle)]">How it works</p>
+          {[
+            { n: '01', label: 'Free 20-min call' },
+            { n: '02', label: 'Honest assessment' },
+            { n: '03', label: 'Fixed scope & price' },
+            { n: '04', label: 'Site live in 4 weeks' },
+          ].map((step) => (
+            <div class="flex items-center gap-4">
+              <span class="font-mono text-xs text-[var(--color-ink-subtle)] w-5 flex-shrink-0">{step.n}</span>
+              <span class="text-sm text-[var(--color-ink-muted)]">{step.label}</span>
+            </div>
+          ))}
+        </div>
+
+
+      </div>
+
+      <!-- Right — body copy + stats -->
+      <div class="md:col-span-4 lg:col-span-7">
+        <div class="space-y-5 text-[var(--color-ink-muted)] leading-relaxed text-[17px]">
+          <p>
+            I'm <strong class="text-[var(--color-ink)]">Robin</strong> — a freelance web developer who
+            builds careful, fast, hand-coded websites for small businesses on
+            <strong class="text-[var(--color-ink)]">Astro.js</strong>, the modern framework built for
+            content-first sites. New builds, rebuilds, and the long-term care of both.
+          </p>
+          <p>
+            Most of my clients are tradespeople, studios, restaurants, and small agencies whose
+            current site is either embarrassing them or actively losing them work — slow,
+            broken on mobile, impossible to update, or quietly failing in search results.
+          </p>
+          <p>
+            With six years of commercial experience across modern stacks and the kind of
+            legacy systems most agencies refuse to touch, I can move you onto something
+            that loads instantly, costs less to host, and is genuinely pleasant to maintain
+            — without losing a single piece of content or breaking your search rankings.
+          </p>
+        </div>
+
+        <!-- Stats row -->
+        <div class="mt-12 pt-8 border-t border-[var(--color-border)] grid grid-cols-3 gap-6">
+          {[
+            { value: '6+',   label: 'Years experience' },
+            { value: '50+',  label: 'Sites delivered' },
+            { value: '100%', label: 'Owner-operated' },
+          ].map((stat) => (
+            <div>
+              <p class="font-display text-4xl lg:text-5xl text-[var(--color-accent)]">{stat.value}</p>
+              <p class="text-xs uppercase tracking-widest text-[var(--color-ink-subtle)] mt-2 font-mono">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
