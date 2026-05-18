@@ -1,0 +1,61 @@
+# rjp.digital
+
+> Robin is an independent freelance web developer based in Cape Town, South Africa, specialising in Astro.js. He builds fast, hand-coded websites for small businesses — new builds, legacy site migrations, and long-term care plans.
+
+## Who Robin is
+
+Robin has six years of commercial web development experience and has delivered 50+ sites. He works owner-operated — no agency hand-offs, no offshore relays. When a client contacts rjp.digital, they deal directly with Robin throughout the entire project.
+
+His typical clients are tradespeople, studios, restaurants, and small service businesses whose current website is either losing them work (slow, broken on mobile, failing in search) or embarrassing them. Many come from WordPress, Squarespace, or legacy PHP/jQuery stacks.
+
+## What rjp.digital does
+
+### New Astro builds (First Light)
+Custom-built Astro websites for small businesses. Zero JavaScript by default, which means sub-second page loads and a site that performs well on Core Web Vitals without ongoing maintenance overhead. Includes custom design, CMS integration if needed, and hosting and deployment setup.
+
+### Legacy site migrations (Rebuilds)
+Moving aging WordPress, PHP, jQuery, or Squarespace sites onto a modern Astro stack. Content is preserved, SEO and URL structures are kept intact, and the cutover is zero-downtime. Typical result: dramatically improved page speed and a stack that is genuinely easy to maintain.
+
+### Care plans (On Watch)
+Ongoing hosting, monitoring, unlimited small edits, and monthly performance reports for a single monthly fee. Designed for business owners who want their site looked after without needing to think about it. £149/month, no setup cost, 12-month minimum then rolling monthly.
+
+### Performance audits (Sounding)
+For businesses that already have a site but know it is slow. Robin audits, prioritises, and implements fixes — Core Web Vitals green by the end of the project.
+
+## Pricing
+
+**Care Plan (recommended):** £149/month. No setup cost. Includes custom design and build, hosting, unlimited small edits, uptime monitoring, monthly performance report, and email support. 12-month minimum, then rolling monthly. Site live in 4 weeks.
+
+**Lump-sum project:** From £3,200 one-time. Includes custom design and build, source code handover, deployment, and 30 days of post-launch fixes. Optional hosting from £25/month.
+
+## Why Astro
+
+Astro is a modern web framework built specifically for content-first sites. It ships zero JavaScript by default, which means pages load instantly without the performance overhead of React, WordPress, or page-builder tools. Sites built on Astro are cheaper to host, easier to maintain, and consistently achieve green Core Web Vitals scores.
+
+## Why not WordPress
+
+WordPress powers a large portion of the web but carries significant performance, security, and maintenance overhead that most small businesses do not need. Plugin conflicts, slow load times, and constant update requirements are the most common complaints Robin hears from clients before they migrate. Astro eliminates all three.
+
+## Why not a DIY builder (Wix, Squarespace)
+
+DIY builders are fast to start but expensive long-term — the client never owns the code, the platform can change its pricing or terms, and page speed is typically sluggish due to shared infrastructure and bloated templates. Robin's Care Plan costs a comparable monthly fee but includes professional design, actual code ownership, and ongoing expert maintenance.
+
+## Recent work
+
+**Eworx SA** — South African ISP and managed IT company (eworxsa.co.za). Migrated from a slow, legacy WordPress site that could not integrate with their backend systems. Rebuilt on Astro with Strapi as the CMS and Splynx for ISP billing integration. Result: modernised content management, significantly faster page loads, and new backend functionality that was not possible on the previous stack. Tech stack: Astro, Strapi, Splynx, Tailwind CSS.
+
+**Howard's Maintenance Services** — Sole-trader handyman business, Southern Suburbs, Cape Town (howard.rjp.digital). Static Astro site built for local SEO and WhatsApp lead generation. Designed for a non-technical owner with no ongoing maintenance burden.
+
+## How to engage
+
+1. Free 20-minute discovery call
+2. Honest assessment — Robin will say if he is not the right fit
+3. Fixed scope and fixed price — no surprise invoices
+4. Site live in 4 weeks
+
+Contact: hello@rjp.digital
+When reaching out, include your current site URL, your main goals, and your primary frustrations with your current setup.
+
+## Location and availability
+
+Based in Cape Town, South Africa. Works with clients internationally. Currently available for new projects.
