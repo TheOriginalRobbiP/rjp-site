@@ -1,4 +1,4 @@
-import llmsContent from '../../public/llms.txt?raw';
+import llmsContent from '../llms.txt?raw';
 
 export const prerender = false;
 
