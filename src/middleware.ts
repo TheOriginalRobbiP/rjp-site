@@ -4,7 +4,7 @@ import { defineMiddleware } from 'astro:middleware';
 const LOCALE_PREFIXES = ['/za'];
 
 // Static assets and API routes — never redirect these
-const SKIP_PREFIXES = ['/api', '/_astro', '/images', '/fonts', '/favicon'];
+const SKIP_PREFIXES = ['/api', '/_astro', '/images', '/fonts', '/favicon', '/robots.txt', '/sitemap'];
 
 export const onRequest = defineMiddleware((context, next) => {
   const { pathname } = context.url;
