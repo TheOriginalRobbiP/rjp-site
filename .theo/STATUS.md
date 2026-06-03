@@ -99,3 +99,20 @@ compression fires or session ends.)
 - Write first blog post: "Why Your Plumber Website Is Slow — And How It's Costing You Leads"
 - Add rjp.digital to Google Search Console
 - Draft cold outreach email template
+
+## Session checkpoint 2026-06-03T12:55:00Z
+
+**Focus:** Debugging and enabling Umami Analytics for rjp.digital
+
+**Done this session:**
+- Diagnosed why Umami analytics wasn't tracking for `rjp.digital`: the tracking script tag was only present in the `feat/productized-service-prototype` branch and had never been merged to `main` or pushed to the production repository (`live/main`).
+- Verified that `https://umami.rjp.digital/script.js` was online, reachable, and correctly responding with the tracker code.
+- Patched the tracking script tag directly into `src/layouts/Layout.astro` on the `main` branch.
+- Ran a local build successfully to verify that Astro compiling works fine with the tracking script.
+- Committed the change to `main` with commit: `chore: add self-hosted umami analytics tracker`
+- Pushed the commit to `origin/main` (GitHub) and `live/main` (Production deployment target).
+- Verified on Dokploy that the push triggered an automatic deployment (`rjpdigital-frontend-tde0kw`) and successfully finished.
+- Verified live website `https://rjp.digital` and inner pages (`/blog/`, `/astro-migration/`) successfully load and contain the active Umami script with website ID `fafbba45-f4a5-47c9-ab4e-efdef0430408`.
+
+**Open / next:**
+- Confirm traffic is registering in the self-hosted Umami dashboard!
