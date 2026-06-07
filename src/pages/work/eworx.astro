@@ -1,0 +1,205 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export const prerender = true;
+---
+
+<Layout
+  title="Eworx SA — WordPress to Astro Case Study | rjp.digital"
+  description="How I rebuilt Eworx SA's legacy WordPress site on Astro with Strapi and Splynx — giving the team content control and connecting customer enquiries directly to their ISP backend."
+>
+  <Header />
+
+  <main>
+
+    <!-- Back nav -->
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 pt-8">
+      <a href="/#work" class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[var(--color-ink-subtle)] hover:text-[var(--color-ink)] transition-colors">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M19 12H5M11 6l-6 6 6 6"/>
+        </svg>
+        Back to work
+      </a>
+    </div>
+
+    <!-- Header -->
+    <section class="py-16 lg:py-24 border-b border-[var(--color-border-light)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="eyebrow mb-4">Case Study · 2025</div>
+          <h1 class="text-5xl lg:text-6xl mb-6">Eworx SA</h1>
+          <p class="text-xl text-[var(--color-ink-muted)] leading-relaxed mb-8">
+            A South African ISP and managed IT provider with a WordPress site that had stopped working for their business — sparse content, a broken contact form, and no connection to the backend systems they rely on daily.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            {['Astro', 'Strapi', 'Splynx', 'Tailwind CSS'].map(tag => (
+              <span class="text-xs font-mono uppercase tracking-wider text-[var(--color-ink-muted)] px-3 py-1 rounded-full border border-[var(--color-border)]">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The problem -->
+    <section class="py-16 lg:py-20 border-b border-[var(--color-border-light)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-4">
+            <div class="eyebrow mb-4">The problem</div>
+            <h2 class="text-3xl lg:text-4xl">A site that was losing them work.</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6 space-y-5 text-[var(--color-ink-muted)] leading-relaxed text-[17px]">
+            <p>
+              Eworx SA has been running managed IT and connectivity services for South African businesses since 1994. Their WordPress site wasn't keeping up. It had very little information on it — not enough for a prospect to understand what Eworx actually offers — and the contact form had a critical flaw: submissions weren't reliably reaching anyone.
+            </p>
+            <p>
+              Potential customers were filling out the form and hearing nothing back. There was no way to know how many leads had slipped through. The site was also entirely dependent on a developer to update — any content change meant filing a request and waiting.
+            </p>
+            <p>
+              The underlying issue wasn't cosmetic. It was structural: the site had no connection to the systems Eworx uses to run their business.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before screenshot -->
+    <section class="py-16 lg:py-20 border-b border-[var(--color-border-light)] bg-[var(--color-surface)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="eyebrow mb-6">Before</div>
+        <figure>
+          <img
+            src="/images/work/eworx-before.png"
+            alt="The old Eworx SA website — sparse layout, generic WordPress theme, minimal content"
+            class="w-full rounded-lg border border-[var(--color-border)] shadow-md"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="mt-3 text-sm font-mono text-[var(--color-ink-subtle)]">
+            The old WordPress site — sparse content, no self-service, and a contact form that wasn't reliably delivering submissions.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- What I built -->
+    <section class="py-16 lg:py-20 border-b border-[var(--color-border-light)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-4">
+            <div class="eyebrow mb-4">The solution</div>
+            <h2 class="text-3xl lg:text-4xl">Connected to the systems that matter.</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <div class="space-y-8">
+
+              <div class="flex gap-5">
+                <div class="flex-none pt-1">
+                  <span class="font-mono text-xs text-[var(--color-accent)]">01</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg mb-2">Astro frontend — fast and maintainable</h3>
+                  <p class="text-[var(--color-ink-muted)] leading-relaxed">
+                    The WordPress site was replaced with a custom Astro build. Static by default — sub-second loads, no plugin overhead, nothing that can silently break. The codebase is clean enough that a developer can pick it up without context.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-5">
+                <div class="flex-none pt-1">
+                  <span class="font-mono text-xs text-[var(--color-accent)]">02</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg mb-2">Strapi CMS — content without a developer</h3>
+                  <p class="text-[var(--color-ink-muted)] leading-relaxed">
+                    Strapi sits behind the Astro frontend as the content layer. The Eworx team can now update service descriptions, add news, and manage the site's content through a clean admin UI — no code, no deployment pipeline, no waiting for a developer.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex gap-5">
+                <div class="flex-none pt-1">
+                  <span class="font-mono text-xs text-[var(--color-accent)]">03</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-lg mb-2">Splynx integration — enquiries become tickets</h3>
+                  <p class="text-[var(--color-ink-muted)] leading-relaxed">
+                    This was the key change. Eworx runs their ISP operations through Splynx — billing, support tickets, customer records. When a visitor submits a service enquiry or support request through the new site, it lands directly in Splynx as a ticket or lead. Nothing gets lost. No more form submissions disappearing into a void.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcome + CTA -->
+    <section class="py-16 lg:py-20 border-b border-[var(--color-border-light)]">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7">
+            <div class="eyebrow mb-4">The outcome</div>
+            <h2 class="text-3xl lg:text-4xl mb-6">Live in 4 weeks. No leads lost.</h2>
+            <p class="text-[var(--color-ink-muted)] leading-relaxed text-[17px] mb-6">
+              From kick-off to launch in four weeks. The new site gives Eworx the content control they needed and closes the loop between website visitor and business system — so no enquiry goes unanswered again.
+            </p>
+            <a
+              href="https://www.eworxsa.co.za/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary inline-flex items-center gap-2"
+            >
+              Visit the live site
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                <path d="M7 17 L17 7 M9 7 L17 7 L17 15"/>
+              </svg>
+            </a>
+          </div>
+          <div class="lg:col-span-4 lg:col-start-9">
+            <dl class="space-y-6">
+              <div class="border-t border-[var(--color-border)] pt-5">
+                <dt class="font-mono text-xs uppercase tracking-wider text-[var(--color-ink-subtle)] mb-1">Delivery</dt>
+                <dd class="text-2xl font-semibold">4 weeks</dd>
+              </div>
+              <div class="border-t border-[var(--color-border)] pt-5">
+                <dt class="font-mono text-xs uppercase tracking-wider text-[var(--color-ink-subtle)] mb-1">Stack</dt>
+                <dd class="text-lg">Astro · Strapi · Splynx</dd>
+              </div>
+              <div class="border-t border-[var(--color-border)] pt-5">
+                <dt class="font-mono text-xs uppercase tracking-wider text-[var(--color-ink-subtle)] mb-1">Key result</dt>
+                <dd class="text-lg">Enquiries route to Splynx — zero leads lost</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl lg:text-4xl mb-4">Have a similar problem?</h2>
+          <p class="text-[var(--color-ink-muted)] leading-relaxed text-[17px] mb-8">
+            If your site is losing leads, hard to update, or disconnected from the tools your business runs on — that's exactly the kind of thing I fix. Get in touch for an honest conversation about what's possible.
+          </p>
+          <a href="/#contact" class="btn-primary">
+            Start a conversation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>

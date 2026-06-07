@@ -7,6 +7,7 @@ interface Project {
   tech: string[];
   year: string;
   link?: string;
+  caseStudy?: string;
 }
 
 // Add real projects here as they ship
@@ -14,12 +15,13 @@ const projects: Project[] = [
   {
     title: 'Eworx',
     description:
-      'Eworx is a South African ISP and IT services business running a legacy WordPress site that had outgrown its platform — slow, hard to update, and disconnected from their backend systems. I rebuilt it on Astro with Splynx and Strapi as the CMS layer, giving the team full control over content without touching code.',
+      'Eworx is a South African ISP and IT services business running a legacy WordPress site that had outgrown its platform — sparse content, a broken contact form, and no connection to the backend systems they rely on. I rebuilt it on Astro with Strapi for content management and Splynx integration so customer enquiries route directly to their ticketing system.',
     result:
-      'Significantly faster load times, a modern content management workflow, and far more functionality than the old site could support.',
+      'Live in 4 weeks. The Eworx team can now update their own content, and every website enquiry lands in Splynx as a ticket — no leads lost.',
     tech: ['Astro', 'Strapi', 'Splynx', 'Tailwind CSS'],
     year: '2025',
     link: 'https://www.eworxsa.co.za/',
+    caseStudy: '/work/eworx',
   },
 ];
 
@@ -59,14 +61,24 @@ const hasProjects = projects.length > 0;
                     {tag}
                   </span>
                 ))}
-                {project.link && (
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" class="btn-secondary ml-auto">
-                    Visit site
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-                      <path d="M7 17 L17 7 M9 7 L17 7 L17 15"/>
-                    </svg>
-                  </a>
-                )}
+                <div class="ml-auto flex items-center gap-3">
+                  {project.caseStudy && (
+                    <a href={project.caseStudy} class="btn-secondary">
+                      Read case study
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6"/>
+                      </svg>
+                    </a>
+                  )}
+                  {project.link && !project.caseStudy && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                      Visit site
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+                        <path d="M7 17 L17 7 M9 7 L17 7 L17 15"/>
+                      </svg>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </article>
